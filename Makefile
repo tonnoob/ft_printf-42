@@ -10,4 +10,30 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
 
+SRC = 
+
+OBJ = $(SRC:.c=.o)
+
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+
+all: $(NAME)
+
+$(NAME): $(OBJ) $(LIBFT)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+clean: 
+
+fclean: clean
+
+re: fclean all
+
+.phony 
