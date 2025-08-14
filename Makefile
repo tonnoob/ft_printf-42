@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SRC = 
+SRC = $(wildcard ./src/*.c)
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,14 +26,22 @@ AR = ar rcs
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
+	$(AR) $(NAME) $(OBJ) 
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-clean: 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ)
+	make -C libft clean
 
 fclean: clean
+	rm -f $(NAME)
+	make -C libft fclean
 
 re: fclean all
 
-.phony 
+.PHONY: all clean fclean re
