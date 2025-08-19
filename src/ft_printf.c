@@ -12,7 +12,27 @@
 
 #include "ft_printf.h"
 
+int	read_spec(va_list args, char	specifier)
+{
+	int	num;
+	int	count;
+
+	num = 0;
+	if (specifier == 'd' || specifier == 'i')
+	{
+		num = va_arg(args, int);
+		count += ft_print_nbr(num);
+	}
+	else if (specifier == 'u')
+	{
+		num = va_arg(args, unsigned int);
+		count += ft_print_unsigned(num);
+	}
+	return (count);
+}
+
 int	ft_printf(const char *, ...)
 {
 
 }
+
