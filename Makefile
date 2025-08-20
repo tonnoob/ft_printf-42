@@ -20,20 +20,19 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I./include 
+CFLAGS = -Wall -Wextra -Werror -I./include
 AR = ar rcs
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(AR) $(NAME) $(OBJ) 
+	$(AR) $(NAME) $(OBJ)
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR) CFLAGS"$(CFLAGS)"
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
