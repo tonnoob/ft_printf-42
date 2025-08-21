@@ -12,35 +12,37 @@
 
 NAME = libftprintf.a
 
-SRC = $(wildcard ./src/*.c)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I./include
+
+SRC =	./src/ft_print_char.c  ./src/ft_print_str.c \
+		./src/ft_print_hex.c  ./src/ft_print_nbr.c\
+		./src/ft_print_pointer.c  ./src/ft_print_unsigned.c\
+		./src/ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include
-AR = ar rcs
-
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(AR) $(NAME) $(OBJ)
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR) CFLAGS"$(CFLAGS)"
+	ar rcs $(NAME) $(OBJ) $(LIBFT)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+clean: 
 	rm -f $(OBJ)
-	make -C libft clean
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	make -C libft fclean
+	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
