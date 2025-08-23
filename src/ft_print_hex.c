@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_print_hex(unsigned int n, int fd, int uppercase)
+int	ft_print_hex(unsigned long n, int fd, int uppercase)
 {
 	int		count;
 	char	*base;

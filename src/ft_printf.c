@@ -22,7 +22,7 @@ static int	read_spec(va_list args, char specifier)
 	else if (specifier == 's')
 		count += ft_print_str(va_arg(args, char *));
 	else if (specifier == 'p')
-		count += ft_print_pointer(va_arg(args, void *));
+		count += ft_print_pointer(va_arg(args, unsigned long));
 	else if (specifier == 'd' || specifier == 'i')
 		count += ft_print_nbr(va_arg(args, int));
 	else if (specifier == 'u')

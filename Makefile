@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =	./src/ft_print_char.c  ./src/ft_print_str.c \
 		./src/ft_print_hex.c  ./src/ft_print_nbr.c\
@@ -28,7 +28,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	ar rcs $(NAME) $(OBJ) $(LIBFT)
+	cp $(LIBFT) .
+	ar x libft.a
+	ar rcs $(NAME) $(OBJ) *.o
+	rm -f libft.a *.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

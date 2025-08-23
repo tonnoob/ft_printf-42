@@ -12,9 +12,8 @@
 
 #include "ft_printf.h"
 
-int	ft_print_pointer(void *ptr)
+int	ft_print_pointer(unsigned long ptr)
 {
-	unsigned long	nptr;
 	int				count;
 
 	if (!ptr)
@@ -24,7 +23,6 @@ int	ft_print_pointer(void *ptr)
 	}
 	write(1, "0x", 2);
 	count = 2;
-	nptr = (unsigned long)ptr;
-	count += ft_print_hex(nptr, 1, 0);
+	count += ft_print_hex(ptr, 1, 0);
 	return (count);
 }
