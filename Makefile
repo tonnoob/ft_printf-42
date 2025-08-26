@@ -28,10 +28,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	cp $(LIBFT) .
-	ar x libft.a
-	ar rcs $(NAME) $(OBJ) *.o
-	rm -f libft.a *.o
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
