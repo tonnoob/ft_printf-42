@@ -1,4 +1,4 @@
-![Foto do projeto](img/libft.png)
+![Foto do projeto](img/ft_printf.png)
 
 # Ft_printf-42  
 
@@ -40,4 +40,4 @@ O `ft_printf` oferece suporte às seguintes conversões:
 
 ---
 
-![Foto projeto concluído](img/libftfinish.png)
+![Foto projeto concluído](img/ft_printf_finish.png)
