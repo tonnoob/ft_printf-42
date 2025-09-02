@@ -35,7 +35,7 @@ O `ft_printf` oferece suporte às seguintes conversões:
 ---
 
 📅 **Período de desenvolvimento**  
-- Início: 22/07/2025  
+- Início: 09/08/2025  
 - Término: 02/09/2025  
 
 ---
